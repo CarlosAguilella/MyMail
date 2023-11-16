@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Configuración - MyMail</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="javascript:void(0)">MyMail</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse search-box" id="mynavbar">
+                <form class="d-flex">
+                    <input class="form-control me-2" type="text" placeholder="Search">
+                    <button class="btn btn-primary" type="button">Search</button>
+                </form>
+            </div>
+            <div class="ms-auto">
+                <select class="form-select">
+                    <option>Configuración</option>
+                    <option>Tema</option>
+                    <option>Panel de lectura</option>
+                    <option>Densidad</option>
+                </select>
+                <select class="form-select">
+                    <option>Usuario</option>
+                    <option>Log out</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Bandeja de entrada</h5>
+                    </div>
+                    <div class="card-body">
+                        <button type="button" class="btn btn-primary">Inbox <span
+                                class="badge bg-info">5</span></button>
+                        <button type="button" class="btn btn-primary">Sent</button>
+                        <button type="button" class="btn btn-primary">Drafts</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <nav class="navbar navbar-expand-md navbar-light bg-light mb-3">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">Configuración</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#settingsNavbar">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="settingsNavbar">
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Idioma</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Edición RTL</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Correo Dinámico</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="language" class="form-label">Idioma:</label>
+                            <select class="form-select" id="language">
+                                <option>Inglés</option>
+                                <option>Español</option>
+                                <option>Français</option>
+                                <option>Deutsch</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="rtl">
+                            <label class="form-check-label" for="rtl">Inhabilitar edición de derecha a
+                                izquierda</label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="dynamic-mail">
+                            <label class="form-check-label" for="dynamic-mail">Habilitar el correo dinámico</label>
+                        </div> 
+                        <div class="mb-3">
+                            <label for="developer-settings" class="form-label">Ajustes para desarrolladores:</label>
+                            <button type="button" class="btn btn-link">Más información</button>
+                        </div>
+                        <div class="mb-3">
+                            <label for="page-size" class="form-label">Tamaño máximo de la página: Mostrar conversaciones
+                                por página</label>
+                            <select class="form-select" id="page-size">
+                                <option>10</option>
+                                <option>20</option>
+                                <option>30</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="theme" class="form-label">Tema:</label>
+                            <select class="form-select" id="theme">
+                                <option>Claro</option>
+                                <option>Oscuro</option>
+                                <option>Por defecto del sistema</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="profile-picture" class="form-label">Foto de perfil:</label>
+                            <input type="file" class="form-control" id="profile-picture" accept="image/*">
+                        </div>
+                        <div class="mb-3">
+                            <label for="density" class="form-label">Densidad:</label>
+                            <select class="form-select" id="density">
+                                <option>Por defecto</option>
+                                <option>Compacto</option>
+                                <option>Confortable</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="signature" class="form-label">Firma:</label>
+                            <textarea class="form-control" id="signature" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="auto-reply" class="form-label">Respuesta automática:</label>
+                            <textarea class="form-control" id="auto-reply" rows="3"></textarea>
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="guardarConfiguracion()">Guardar Configuración</button>
+                        <button type="button" class="btn btn-secondary"><a href="MyMail.html" class="nav-link">Cancelar</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function guardarConfiguracion() {
+                var confirmacion = confirm("¿Estás seguro de guardar la configuración?");
+                if (confirmacion) {
+                    alert("Configuración guardada exitosamente.");
+                }
+            }
+        </script>
+</body>
+</html>
